@@ -60,7 +60,7 @@ catkin_package(
 foreach(PLUGIN ${SERVICESIM_PLUGIN_LIST})
   add_library(${PLUGIN} SHARED src/servicesim/${PLUGIN}.cc)
 
-  add_dependencies(${PLUGIN} ${catkin_EXPORTED_TARGETS})
+  add_dependencies(${PLUGIN} ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
   target_link_libraries(${PLUGIN}
     ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
