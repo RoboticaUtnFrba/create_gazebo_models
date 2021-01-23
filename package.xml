@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>create_gazebo_models</name>
+  <version>0.0.1</version>
+  <description>Simulation plugins to simulate the robot</description>
+
+  <maintainer email="eborghiorue@frba.utn.edu.ar">Emiliano Borghi</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>std_msgs</depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}
+                                  :${prefix}/media
+                                  :${prefix}/models/create_hector_nist_arenas"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models
+                                  :${prefix}/models/create_autorace
+                                  :${prefix}/models/create_house
+                                  :${prefix}/models/create_servicesim
+                                  :${prefix}/models/sweet_home_3d"/>
+    <gazebo_ros plugin_path="${prefix}/models/create_autorace/gazebo_traffic_plugin
+                            :${prefix}/src/create_servicesim
+                            :${prefix}/models/sweet_home_3d"/>
+  </export>
+</package>
